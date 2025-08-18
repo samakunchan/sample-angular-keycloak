@@ -1,0 +1,16 @@
+services:
+  frontend:
+    container_name: site-web-sample
+    build:
+      context: .
+      target: cache
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run start-docker
+    ports:
+      - '4210:4200'
+    environment:
+      # hot reload enabled
+      - CHOKIDAR_USEPOLLING=true
