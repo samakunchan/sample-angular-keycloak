@@ -3,7 +3,6 @@ import { catchError, combineLatest, Observable, of, tap } from 'rxjs';
 import { environment } from '../environments/environment';
 import { IPersonalApi } from '../interfaces/personal-api.interface';
 import { inject } from '@angular/core';
-import { IKeycloak } from '../interfaces/keycloak.interface';
 import { IwellKnowKeycloak } from '../interfaces/IwellKnowKeycloak';
 
 
@@ -55,7 +54,7 @@ export function detectionServerReady(): ()=> Observable<[IPersonalApi, IwellKnow
     return combineLatest([
       http.get<IPersonalApi>(`${environment.apiUrl}`).pipe(
         tap(() => console.log(`Initialisation de l'app en %c${window.performance.now() / 1000}s`, 'color: #2780e1')),
-        catchError(err => {
+        catchError(() => {
           console.error(`L'API ${environment.apiUrl} n'a pas l'air de fonctionner.`)
           return of({
             title: 'Error',
@@ -67,7 +66,7 @@ export function detectionServerReady(): ()=> Observable<[IPersonalApi, IwellKnow
       ),
       http.get<IwellKnowKeycloak>(`${environment.keycloakServer}/realms/ppg-connect/.well-known/openid-configuration`).pipe(
         tap(() => console.log(`Initialisation de l'app en %c${window.performance.now() / 1000}s`, 'color: #2780e1')),
-        catchError(err => {
+        catchError(() => {
           console.error(`L'url https://secure-connect.devpapangue.com/realms/ppg-connect/.well-known/openid-configuration n'e pas l'air de fonctionner.`)
           return of( {
             issuer: 'Error',
