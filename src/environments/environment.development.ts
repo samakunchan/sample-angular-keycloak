@@ -5,6 +5,7 @@
  */
 export const environment = {
   title: 'Dev',
+  apiUrl: import.meta.env.NG_APP_API_URL,
   keycloakServer: import.meta.env.NG_APP_KEYCLOAK_SERVER,
   keycloakReam: import.meta.env.NG_APP_KEYCLOAK_REALM,
   keycloakClientID: import.meta.env.NG_APP_KEYCLOAK_CLIENT_ID,
