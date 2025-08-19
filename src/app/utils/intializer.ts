@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { catchError, combineLatest, Observable, of, tap } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 import { IPersonalApi } from '../interfaces/personal-api.interface';
 import { inject } from '@angular/core';
 import { IwellKnowKeycloak } from '../interfaces/IwellKnowKeycloak';

@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { detectionServerReady } from '../utils/intializer';
+import { detectionServerReady } from './utils/intializer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
