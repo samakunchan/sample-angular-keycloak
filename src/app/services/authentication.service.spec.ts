@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { AuthenticationService } from './authentication.service';
-import { HttpClientTestingModule, provideHttpClientTesting } from '@angular/common/http/testing';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 import { HttpClient } from '@angular/common/http';
 import { of } from 'rxjs';

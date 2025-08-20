@@ -8,7 +8,7 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { HttpEvent, HttpHandlerFn, HttpRequest, provideHttpClient, withInterceptors } from '@angular/common/http';
-import { dectectionAuthenticationToken, dectectionAuthUserConnected, detectionServerReady } from './utils/intializer';
+import { dectectionAuthUserConnected, detectionServerReady } from './utils/intializer';
 import { JwtModule } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { KeycloakConfig } from './utils/config.core';

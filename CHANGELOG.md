@@ -1,3 +1,21 @@
+## 🚀 0.3.0 - 20/08/2025
+### Nouveautés
+
+- Ajout de variables supplémentaires dans le fichier `.env`.
+- Ajout d'un fichier pour l'initialisation d'angular
+- Configuration du premier initializer.
+- Ajout des interfaces : api perso, keycloak response et keycloak configuration.
+- Ajout d'une librairie permettant de gérer les variables d'environnements.
+
+### Changements
+
+- Modification des scripts.
+
+### Correctifs
+
+- Correction d'un bug de rollback du code.
+
+
 ## 🚀 0.2.0 - 19/08/2025
 ### Nouveautés
 

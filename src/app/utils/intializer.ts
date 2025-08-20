@@ -1,7 +1,7 @@
 // https://secure-connect.devpapangue.com/realms/ppg-connect/.well-known/openid-configuration
 
 import { HttpClient } from '@angular/common/http';
-import { catchError, combineLatest, filter, iif, mergeMap, Observable, of, switchMap, tap } from 'rxjs';
+import { catchError, combineLatest, mergeMap, Observable, of, switchMap, tap } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { IPersonalApi } from '../interfaces/personal-api.interface';
 import { inject } from '@angular/core';
