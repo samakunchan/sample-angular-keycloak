@@ -1,0 +1,16 @@
+export enum ErrorEnum {
+  title = 'POOOLICEEEEE',
+  internetOffline = 'Pas de connexion internet.',
+  serverOffline = 'Le serveur est hors ligne.',
+  unAuthorized = 'Vous n‘avez pas les autorisations requises pour effectuer cette action.',
+  notFound = 'Ressource introuvable.',
+  errorServer = 'Votre client n‘a pas reçu de réponse de la part du serveur distant.',
+  commonError = 'Une érreur est survenu. Veuillez contacter un administrateur.',
+  noAccessToken = 'Aucun access token n‘a été trouvé.',
+  noRefreshToken = 'Aucun refresh token n‘a été trouvé.',
+  noIdToken = 'Aucun id token n‘a été trouvé.',
+  noUser = 'Aucun utilisateur n‘a été trouvé.',
+  urlConstructor = 'URL constructor',
+  isNotValidUrl = 'is not a valid URL.',
+  sessionExpired = 'Votre session est expiré.',
+}
