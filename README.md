@@ -34,3 +34,7 @@ docker compose up -d
 ```
 Serveur : http://localhost:4210
 
+## Reste à faire.
+L'essentiel est présent, mais il y aura des corrections à faire suite aux nouvelles versions d'Angular.
+1. Faire un vrai logout : j'ai du oublier de le faire à l'époque.
+2. Avant, j'avais `dectectionAuthUserConnected()` et `dectectionAuthenticationToken()` qui étaient dans deux modules différents. Maintenant, ils sont aux mêmes endroits à l'initialisation et s'éxécute deux fois. Je pense qu'aujourd'hui l'initialiser initialise un de trop. J'utilise que `dectectionAuthUserConnected` pour l'instant. 
