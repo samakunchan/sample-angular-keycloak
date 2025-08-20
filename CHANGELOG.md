@@ -1,3 +1,25 @@
+## 🚀 0.3.0 - 20/08/2025
+### Nouveautés
+
+- Ajout du package JwtService.
+- Ajout d'une class service pour gérer le code param, vérifier le token est toujours valide, si l'utilisateur est toujours connecté et récupéré l'access token.
+- Ajout des tests.
+- Création d'un component simple pour l'authentification.
+- Ajout d'un gestionnaire de localstorage.
+- Ajout de deux méthodes pour gérer le workflow d'authentification.
+
+### Changements
+
+- Remise en place des suffixes par défaut pour la création des fichiers.
+- Ajout final de variable de configuration.
+- Ajout du minimum syndical pour que les tests fonctionnent.
+- Mise à jour du test du component.
+
+### Correctifs
+
+- Correction sur l'url de keycloak pour le health check de keycloak.
+
+
 ## 🚀 0.2.0 - 19/08/2025
 ### Nouveautés
 

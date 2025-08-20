@@ -1,9 +1,13 @@
+// https://secure-connect.devpapangue.com/realms/ppg-connect/.well-known/openid-configuration
+
 import { HttpClient } from '@angular/common/http';
-import { catchError, combineLatest, Observable, of, tap } from 'rxjs';
-import { environment } from '../environments/environment';
+import { catchError, combineLatest, mergeMap, Observable, of, switchMap, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 import { IPersonalApi } from '../interfaces/personal-api.interface';
 import { inject } from '@angular/core';
 import { IwellKnowKeycloak } from '../interfaces/IwellKnowKeycloak';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 
 /**
@@ -64,7 +68,7 @@ export function detectionServerReady(): ()=> Observable<[IPersonalApi, IwellKnow
           } as IPersonalApi)
         })
       ),
-      http.get<IwellKnowKeycloak>(`${environment.keycloakServer}/realms/ppg-connect/.well-known/openid-configuration`).pipe(
+      http.get<IwellKnowKeycloak>(`https://${environment.keycloakServer}/realms/ppg-connect/.well-known/openid-configuration`).pipe(
         tap(() => console.log(`Initialisation de l'app en %c${window.performance.now() / 1000}s`, 'color: #2780e1')),
         catchError(() => {
           console.error(`L'url https://secure-connect.devpapangue.com/realms/ppg-connect/.well-known/openid-configuration n'e pas l'air de fonctionner.`)
@@ -80,4 +84,40 @@ export function detectionServerReady(): ()=> Observable<[IPersonalApi, IwellKnow
     ]);
   };
 }
-// https://secure-connect.devpapangue.com/realms/ppg-connect/.well-known/openid-configuration
+
+export function dectectionAuthUserConnected() {
+
+  return (): Observable<boolean> => {
+    const router: Router = inject(Router);
+    const authenticationService: AuthenticationService = inject(AuthenticationService);
+    const params: URLSearchParams = new URLSearchParams(window.location.search);
+    const code: string| null = params.get('code');
+
+    if (code) {
+      return authenticationService.storeTokensWithCodeAndReturnUser(code).pipe(
+        switchMap(() => authenticationService.checkUserIsLogged()),
+        tap(() => router.navigate(['/'])),
+        switchMap(() => of(true))
+      );
+    }
+
+    return authenticationService.checkUserIsLogged();
+  };
+}
+
+export function dectectionAuthenticationToken() {
+  return (): Observable<boolean> => {
+    const authenticationService = inject(AuthenticationService);
+
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get('code');
+
+    if (code) {
+      return authenticationService.storeTokensWithCodeAndReturnUser(code).pipe(
+        mergeMap(() => authenticationService.checkUserIsLogged())
+      );
+    } else {
+      return authenticationService.checkUserIsLogged();
+    }
+  };
+}
