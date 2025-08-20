@@ -6,8 +6,14 @@ declare interface Env {
   readonly NG_APP_KEYCLOAK_SERVER: string;
   readonly NG_APP_KEYCLOAK_REALM: string;
   readonly NG_APP_KEYCLOAK_CLIENT_ID: string;
+  readonly NG_APP_KEYCLOAK_CLIENT_SECRET: string;
   readonly NG_APP_KEYCLOAK_REDIRECT_URI: string;
   readonly NG_APP_KEYCLOAK_REDIRECT_URI_DOCKER: string;
+  readonly NG_APP_KEYCLOAK_CODE_CHALLENGE_METHOD: string;
+  readonly NG_APP_KEYCLOAK_CODE_CHALLENGE: string;
+  readonly NG_APP_KEYCLOAK_CODE_VERIFIER: string;
+  readonly NG_APP_KEYCLOAK_SCOPES: string;
+  readonly NG_APP_KEYCLOAK_STATE: string;
   // Replace the following with your own environment variables.
   // Example: NGX_VERSION: string;
   [key: string]: any;
